@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Website</title>
+    <script defer src="https://pyscript.net/alpha/pyscript.js"></script>
+
+<!--CSS-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="./static/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+    <link href="./static/css2/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+</head>
+<body>
+
+    <h1> Procurement Fraud Detector</h1>
+    <form action='/predict' method="POST" class="col s12">
+
+        <div class="row 0">
+            <div class="first_row">
+                <label> <b> Contract: </b></label>
+                <select name="Contract">
+                    <option value= '0' > No </option>
+                    <option value= '1' > Yes </option>
+                </select>
+            </div>
+            <br>
+
+            <div class="first_row">
+                <label><b>Unit Price</b></label>
+                <input name="Unit_Price" placeholder="Price in Rs" type="text" class="validate">
+            </div>
+            <br>
+
+            <div class="first_row">
+                <label><b>PO Quantity</b></label>
+                <input name="PO_Quantity" placeholder="Quantity in kg" type="text" class="validate">
+            </div>
+            <br>
+
+            <div class="first_row">
+                <label><b>Market Price</b></label>
+                <input name="Market_price" placeholder="Market Price in Rs" type="text" class="validate">
+            </div>
+            <br>
+
+            <div class="first_row">
+                <label><b>Total Cost</b></label>
+                <input name="Total_price" placeholder="Total Price in Rs" type="text" class="validate">
+            </div>
+            <br>
+
+        </div>
+
+        <div class="row">
+            <div class="input-field col s4">
+                <label> <b> Requesting Officer Name: </b> </label>
+                <select name="Requesting_Auth_names">
+                    <option value= 'Adrian Morgan' > Adrian Morgan </option>
+                    <option value= 'Randall Smith' > Randall Smith </option>
+                    <option value= 'Elijah Collins' > Elijah Collins </option>
+                    <option value= 'Angela Hernandez' > Angela Hernandez </option>
+                    <option value= 'Jake Cunningham' > Jake Cunningham </option>
+                    <option value= 'Patrick Wolf' > Patrick Wolf </option>
+                    <option value= 'Lisa Smith' > Lisa Smith </option>
+                    <option value= 'Caroline Walters' > Caroline Walters </option>
+                    <option value= 'Patricia Williams' > Patricia Williams </option>
+                    <option value= 'Pamela Smith' > Pamela Smith </option>
+                    <option value= 'Jeffrey Murphy' > Jeffrey Murphy </option>
+                    <option value= 'Nicholas Pittman' > Nicholas Pittman </option>
+                    <option value= 'Janet Le' > Janet Le </option>
+                    <option value= 'Brittany Walker' > Brittany Walker </option>
+                    <option value= 'Katelyn Parsons' > Katelyn Parsons </option>
+                    <option value= 'Thomas Hamilton' > Thomas Hamilton </option>
+                    <option value= 'Katherine Mcgee DDS' > Katherine Mcgee</option>
+                    <option value= 'Jay York' > Jay York </option>
+                    <option value= 'Linda Taylor' > Linda Taylor </option>
+                    <option value= 'Cameron Grant' > Cameron Grant </option>
+                    <option value= 'Kimberly Shields' > Kimberly Shields </option>
+                    <option value= 'Nicole Bell' > Nicole Bell </option>
+                    <option value= 'Ralph Moreno' > Ralph Moreno </option>
+                    <option value= 'Lindsay Martinez' > Lindsay Martinez </option>
+                    <option value= 'Heidi White' > Heidi White </option>
+                </select>
+            </div>
+            <br>
+
+            <div class="input-field col s4">
+                <label><b> Approving Officer Name: </b></label>
+                <select name="Approving_manager_names">
+                    <option value= 'Jennifer Delgado' > Jennifer Delgado </option>
+                    <option value= 'Dennis Williams' > Dennis Williams </option>
+                    <option value= 'Mark Mclean' > Mark Mclean </option>
+                    <option value= 'Jasmine Long' > Jasmine Long </option>
+                    <option value= 'Jeanette Estes' > Jeanette Estes </option>
+                    <option value= 'Jessica Keith' > Jessica Keith </option>
+                    <option value= 'Cathy Guzman' > Cathy Guzman </option>
+                    <option value= 'Danny Rivera' > Danny Rivera </option>
+                    <option value= 'Catherine Farrell' > Catherine Farrell </option>
+                    <option value= 'Shelby Martinez' > Shelby Martinez </option>
+                    <option value= 'Joshua Johnson' > Joshua Johnson </option>
+                    <option value= 'Barry Salazar' > Barry Salazar </option>
+                    <option value= 'Peggy Velasquez' > Peggy Velasquez </option>
+                    <option value= 'Jessica Vargas' > Jessica Vargas </option>
+                    <option value= 'Lawrence Cohen' > Lawrence Cohen </option>
+                    <option value= 'Katie Thompson' > Katie Thompson </option>
+                </select>
+            </div>
+            <br>
+
+            <div class="input-field col s4">
+                <label> <b>Product Name: </b> </label>
+                <select name="Product_names">
+                    <option value= 'Pumpkin' > Pumpkin </option>
+                    <option value= 'Banana' > Banana </option>
+                    <option value= 'Capsicum' > Capsicum </option>
+                    <option value= 'Apple' > Apple </option>
+                    <option value= 'Cabbage' > Cabbage </option>
+                    <option value= 'Bringal' > Bringal </option>
+                    <option value= 'Beans' > Beans </option>
+                    <option value= 'Carrot' > Carrot </option>
+                    <option value= 'Onion' > Onion </option>
+                    <option value= 'Potato' > Potato </option>
+                    <option value= 'Tomato' > Tomato </option>
+                    <option value= 'Cucumber' > Cucumber </option>
+                    <option value= 'Cauliflower' > Cauliflower </option>
+                </select>
+            </div>
+        </div>
+        <br>
+
+        <div class="row 2">
+            <label> <b>Supplier Name: </b> </label>
+            <select name="Supplier_names">
+                <option value= 'Food Festive' > Food Festive </option>
+                <option value= 'Rancher\u00e2\u20ac\u2122s Grocery' > Rancherâ€™s Grocery </option>
+                <option value= 'Future FoodBetter Bites Deli' > Future FoodBetter Bites Deli </option>
+                <option value= 'Freshmart Co-op' > Freshmart Co-op </option>
+                <option value= 'Go4Fresh' > Go4Fresh </option>
+                <option value= 'Fleet Market' > Fleet Market </option>
+                <option value= 'Global Fresh Market' > Global Fresh Market </option>
+                <option value= 'Dollar Pantry' > Dollar Pantry </option>
+                <option value= 'Stocked Pantry' > Stocked Pantry </option>
+                <option value= 'Budget Foods' > Budget Foods </option>
+                <option value= 'Food to Fly' > Food to Fly </option>
+                <option value= 'Jamboree Marketplace' > Jamboree Marketplace </option>
+                <option value= 'Quick Fare Foods' > Quick Fare Foods </option>
+                <option value= 'Dilocious' > Dilocious </option>
+                <option value= 'Snack Paradise' > Snack Paradise </option>
+                <option value= 'Market Convenience' > Market Convenience </option>
+                <option value= 'Fresh Food Marketplace' > Fresh Food Marketplace </option>
+            </select>
+         </div>
+        <br>
+
+        <div class="row 3">
+            <label> <b> City Name: </b> </label>
+            <select name="City_names">
+                <option value= 'Lucknow' > Lucknow </option>
+                <option value= 'Nagpur' > Nagpur </option>
+                <option value= 'Ahmedabad' > Ahmedabad </option>
+                <option value= 'NashikDelhi' > NashikDelhi </option>
+                <option value= 'Chennai' > Chennai </option>
+                <option value= 'Mumbai' > Mumbai </option>
+                <option value= 'Surat' > Surat </option>
+                <option value= 'Kolkatta' > Kolkatta </option>
+                <option value= 'Chandigarh' > Chandigarh </option>
+                <option value= 'Jaipur' > Jaipur </option>
+                <option value= 'Hyderabad' > Hyderabad </option>
+                <option value= 'Pune' > Pune </option>
+                <option value= 'Aurangabad' > Aurangabad </option>
+                <option value= 'Bangalore' > Bangalore </option>
+            </select>
+        </div>
+        <br>
+
+        <div class="row center">
+            <button type="submit" class="btn-large waves-effect waves-light orange">Predict</button>
+        </div>
+    </form>
+</body>
+</html>
